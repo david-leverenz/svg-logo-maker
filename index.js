@@ -3,72 +3,21 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const getData = require('./lib/input.js');
 const getShapeInfo = require('./lib/shapes.js');
+const svgGenerator = require('./lib/svgString.js')
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
 inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
 // const htmlMaker = require('./htmlReadme.js');
 
-// If we use their test files we need to set methods.
 
-class Shape {
-    constructor(name, age, breed) {
-        this.name = name;
-        this.age = age;
-        this.breed = breed;
-    }
-
-    nap() {
-        console.log('Zzzzzzzzz' + " " + this.name);
-    }
-}
-
-// Use extends and super in here somewhere (lesson ten)
-class Triangle {
-    constructor(name, age, breed) {
-        Shape.call(this, name, age, breed);
-        this.name = name;
-        this.age = age;
-        this.breed = breed;
-    }
-
-    nap() {
-        console.log('Zzzzzzzzz' + " " + this.name);
-    }
-}
-
-class Circle {
-    constructor(name, age, breed) {
-        Shape.call(this, name, age, breed);
-        this.name = name;
-        this.age = age;
-        this.breed = breed;
-    }
-
-    nap() {
-        console.log('Zzzzzzzzz' + " " + this.name);
-    }
-}
-class Square {
-    constructor(name, age, breed) {
-        Shape.call(this, name, age, breed);
-        this.name = name;
-        this.age = age;
-        this.breed = breed;
-    }
-
-    nap() {
-        console.log('Zzzzzzzzz' + " " + this.name);
-    }
-}
 function init() {
     inquirer
-        .prompt(getData);
-    //   .then((data) => {
-    //     let pasteIcon = getIcon(data)
-    //     fs.writeFile('readme.md', htmlMaker({ ...data, licenseLink: pasteIcon }), (err) => {
-    //       err ? console.log(err) : console.log("success");
-
-    //     });
-    //   });
+        .prompt(getData)
+        .then((data) => {
+        console.log(data);
+            fs.writeFile(('${data.shapeName}.svg'), svgGenerator({ ...data}), (err) => {
+                err ? console.log(err) : console.log("Success!");
+            });
+        });
 }
 
 init()
