@@ -11,7 +11,7 @@ function init() {
     inquirer
         .prompt(askQuestions)
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             let shape;
             if (data.shapeName === 'circle') {
                 shape = new Circle();
