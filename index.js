@@ -1,25 +1,28 @@
 // These enable fs and inquirer.  They also identify the other files needed and create constants for those files.
 const fs = require('fs');
 const inquirer = require('inquirer');
-const getData = require('./lib/input.js');
-const getShapeInfo = require('./lib/shapes.js');
-const svgGenerator = require('./lib/svgString.js')
-const svgClass = require('./lib/svg.js')
+const askQuestions = require('./lib/input.js');
+const {Circle, Square, Triangle} = require('./lib/shapes.js');
+const SVG = require('./lib/svg.js');
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
-inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt)
-// const htmlMaker = require('./htmlReadme.js');
-
-
+inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt);
 
 function init() {
     inquirer
-        .prompt(getData)
+        .prompt(askQuestions)
         .then((data) => {
             console.log(data);
+            let shape;
+            if (data.shapeName === 'circle') {
+                shape = new Circle();
+            } else if (data.shapeName === "triangle") {
+                shape = new Triangle();
+            } else shape = new Square();
+            shape.setColor(data.shapeColor);
             const svg = new SVG();
-            svg.setText(textColor, initials);
-            svg.setShape(shapeSpecificString, shapeColor);
-            fs.writeFile(('example.svg'), svgGenerator({ ...data }), (err) => {
+            svg.setText(data.initials, data.textColor);
+            svg.setShape(shape);
+            fs.writeFile(('example.svg'), svg.render(), (err) => {
                 err ? console.log(err) : console.log("Success!");
             });
         });
