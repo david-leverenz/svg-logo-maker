@@ -1,4 +1,5 @@
-# svg-logo-maker
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# SVG Logo Maker
 A node.js app that takes inputs and creates a custom logo.
 
 ## Description
@@ -11,41 +12,23 @@ When you have entered input for all the prompts an SVG file is created named `lo
 When you open the `logo.svg` file in a browser you are shown a 300x200 pixel image that matches the criteria you entered.<br>
 ## Links
 **GitHub:** https://github.com/david-leverenz/svg-logo-maker<br>
-**Video:** 
+**Demo Recording:** https://drive.google.com/file/d/1qoDZaOl9NFHqt7yEm4SY9o0NG1Y1rdIB/view<br>
+The below image was created using the SVG Logo Maker:<br><br>
+![image](https://github.com/david-leverenz/svg-logo-maker/assets/131185593/c439d9e2-9b52-4b98-b9a9-318a82a4a0a3)
 
+## Getting Started
+N/A
 ### Dependencies
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-### Installing
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+N/A
 ### Executing program
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+Run the the index.js file from the command line.
 ## Help
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+No known issues.
 ## Authors
-Contributors names and contact info
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+David Leverenz 
 ## Version History
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+Version 1.0 Initial Release
 ## License
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the MIT license.
 ## Acknowledgments
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+Special thanks to Poornima, Sam and Dom for their assistance!  Especially Sam, who ensured that I passed all jest tests.
