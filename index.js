@@ -4,6 +4,7 @@ const inquirer = require('inquirer');
 const askQuestions = require('./lib/input.js');
 const {Circle, Square, Triangle} = require('./lib/shapes.js');
 const SVG = require('./lib/svg.js');
+// const theShape = require('./lib/chooseShape.js')
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
 inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt);
 
