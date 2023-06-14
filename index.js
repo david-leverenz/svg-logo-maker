@@ -12,19 +12,23 @@ function init() {
     inquirer
         .prompt(askQuestions)
         .then((data) => {
-            // console.log(data);
             let shape;
-            if (data.shapeName === 'circle') {
+            console.log(data.shapeName);
+            if (data.shapeName == 'circle') {
                 shape = new Circle();
-            } else if (data.shapeName === "triangle") {
+            } else if (data.shapeName == "triangle") {
                 shape = new Triangle();
             } else shape = new Square();
             // shape.setColor(data.shapeColor);
-            shape.setString(data.shapeColor,data.initials, data.textColor)
+            shape.setColor(data.shapeColor);
             const svg = new SVG();
+            console.log(shape);
+            svg.setText(data.initials, data.textColor);
+            svg.setShape(shape);
+            
             // the below line was working with the 'working' shapes and svg files
             // svg.setText(data.initials, data.textColor);
-            svg.setShape(shape);
+            //svg.setShape(shape);
             fs.writeFile(('example.svg'), svg.render(), (err) => {
                 err ? console.log(err) : console.log("Success!");
             });
