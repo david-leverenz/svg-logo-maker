@@ -18,13 +18,11 @@ function init() {
             } else if (data.shapeName === "triangle") {
                 shape = new Triangle();
             } else shape = new Square();
-            shape.setColor(data.shapeColor);
+            // shape.setColor(data.shapeColor);
+            shape.setString(data.shapeColor,data.initials, data.textColor)
             const svg = new SVG();
             // the below line was working with the 'working' shapes and svg files
             // svg.setText(data.initials, data.textColor);
-            // the two below were added
-            svg.setText(text);
-            svg.setInitials(initials);
             svg.setShape(shape);
             fs.writeFile(('example.svg'), svg.render(), (err) => {
                 err ? console.log(err) : console.log("Success!");
